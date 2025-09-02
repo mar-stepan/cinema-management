@@ -1,5 +1,5 @@
 # Workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy React App to GitHub Pages
+name: Deploy Angular App to GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -32,17 +32,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24.7.0'
           cache: 'npm'
 
       - name: Install dependencies
         run: npm install
         
       - name: Build Angular app
-        run: npm run build
-        env:
-          # Add any environment variables needed for the build process
-          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL || '/' }}
+        run: npm run build -- --base-href="cinema-management"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -50,7 +47,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './dist/cinema-management'
 
   # Deployment job
   deploy:
