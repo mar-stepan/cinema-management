@@ -1,0 +1,21 @@
+<form [formGroup]="form" (ngSubmit)="save()" class="form">
+    <div>
+        <div>Number of seats</div>
+        <p-inputnumber inputId="integeronly" formControlName="seat"/>
+    </div>
+
+    <div class="form__actions">
+        <p-button
+                label="Cancel"
+                severity="contrast"
+                (click)="cancel()"
+                [disabled]="isLoading()"
+        />
+
+        <p-button
+                label="Save"
+                type="submit"
+                [disabled]="form.invalid || isLoading()"
+        />
+    </div>
+</form>

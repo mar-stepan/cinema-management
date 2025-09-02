@@ -1,0 +1,39 @@
+:host {
+  padding: 12px;
+  width: 140px;
+  background-color: whitesmoke;
+
+  .logo {
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  .menus {
+    display: grid;
+    gap: 12px;
+    font-size: 18px;
+
+    &__item {
+      position: relative;
+
+      &.selected {
+        color: darkgray;
+
+        &::before {
+          background-color: darkgray;
+          bottom: 0;
+          content: '';
+          left: -12px;
+          position: absolute;
+          top: 0;
+          width: 4px;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: darkgray;
+      }
+    }
+  }
+}

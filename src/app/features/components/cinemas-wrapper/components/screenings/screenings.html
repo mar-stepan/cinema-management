@@ -1,0 +1,47 @@
+<p-card>
+    <div class="title">
+        <div>
+            <div>Total Screenings: {{ totalElements() }}</div>
+            <div>Screenings per page: {{ content().length }}</div>
+        </div>
+        <p-button
+                label="Create Screening"
+                severity="secondary"
+                (click)="createScreeningPopup()"
+                rounded="true"
+        />
+    </div>
+</p-card>
+
+<p-card>
+    <p-table
+            [value]="content()"
+            [loading]="screeningsResource.isLoading()"
+            dataKey="id"
+            [rowHover]="true"
+    >
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Cinema Name</th>
+                <th>Screen Name</th>
+                <th>Start</th>
+                <th>Movie Name</th>
+                <th class="actions-column">Actions</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-data>
+            <tr>
+                <td>{{ data?.cinemaName || 'Unsupported name' }}</td>
+                <td>{{ data?.screenName }}</td>
+                <td>{{ data?.start | date:    'M/d/yy, h:mm a' }}</td>
+                <td>{{ data?.movie?.name || 'Unsupported movie name' }}</td>
+                <td>
+                    <p-button [label]="'Create Booking'"
+                              severity="info"
+                              (click)="openCreateBookingPopup(data.id)"
+                    />
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>

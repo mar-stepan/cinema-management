@@ -1,0 +1,25 @@
+<form [formGroup]="form" (ngSubmit)="save()" class="form">
+    <div>
+        <div>Name</div>
+        <input type="text" pInputText formControlName="name"/>
+    </div>
+    <div>
+        <div>Runtime</div>
+        <p-inputnumber inputId="integeronly" formControlName="runtime"/>
+    </div>
+
+    <div class="form__actions">
+        <p-button
+                label="Cancel"
+                severity="contrast"
+                (click)="cancel()"
+                [disabled]="isLoading()"
+        />
+
+        <p-button
+                label="Save"
+                type="submit"
+                [disabled]="form.invalid || isLoading()"
+        />
+    </div>
+</form>

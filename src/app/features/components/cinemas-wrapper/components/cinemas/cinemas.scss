@@ -1,0 +1,27 @@
+:host {
+  p-card:first-child {
+    margin-bottom: 12px;
+  }
+  .title {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: center;
+    font-size: 18px;
+  }
+
+  .actions-column {
+    width: 100px;
+  }
+
+  .add-screen-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 10px 20px;
+
+    div {
+      font-weight: bold;
+    }
+  }
+}

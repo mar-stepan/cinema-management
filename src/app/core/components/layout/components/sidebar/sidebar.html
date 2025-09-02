@@ -1,0 +1,10 @@
+<div class="logo">LOGO</div>
+<div class="menus">
+    @for (menu of sideMenu; track menu.route) {
+        <div class="menus__item"
+             [class.selected]="url().startsWith('/' + menu.route)"
+             (click)="navigate(menu.route)">
+            {{ menu.label }}
+        </div>
+    }
+</div>

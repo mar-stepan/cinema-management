@@ -1,0 +1,11 @@
+:host {
+  .form {
+    display: grid;
+    gap: 16px;
+
+    &__actions {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

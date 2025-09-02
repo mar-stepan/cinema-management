@@ -1,0 +1,23 @@
+<p-card>
+    <div class="title">Dashboard Stats</div>
+</p-card>
+
+<p-card>
+    <div class="dashboard-container">
+        <ng-container
+                *ngTemplateOutlet="container; context: { statsName: 'Cinemas', total: totalCinemas() }"></ng-container>
+        <ng-container
+                *ngTemplateOutlet="container; context: { statsName: 'Screens', total: totalScreens() }"></ng-container>
+        <ng-container
+                *ngTemplateOutlet="container; context: { statsName: 'Movies', total: totalMovies() }"></ng-container>
+        <ng-container
+                *ngTemplateOutlet="container; context: { statsName: 'Bookings', total: totalBookings() }"></ng-container>
+    </div>
+</p-card>
+
+<ng-template #container let-total="total" let-statsName="statsName">
+    <div class="dashboard">
+        <div class="dashboard__total">{{ total }}</div>
+        <div>{{ statsName }}</div>
+    </div>
+</ng-template>

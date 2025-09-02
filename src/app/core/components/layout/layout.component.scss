@@ -1,0 +1,14 @@
+:host {
+  .layout {
+    display: flex;
+
+    &__content {
+      padding: 12px;
+      flex: 1;
+      height: 100vh;
+      position: relative;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<p-card>
+    <div>Total Bookings: {{ totalElements() }}</div>
+    <div>Bookings per page: {{ content().length }}</div>
+</p-card>
+
+<p-card>
+    <p-table
+            [value]="content()"
+            [loading]="bookingsResource.isLoading()"
+            dataKey="id"
+            [rowHover]="true"
+    >
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Some booking ID</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-data>
+            <tr>
+                <td>{{ data?.id }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>

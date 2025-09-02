@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="save()" class="form">
+    <div>
+        <div>Name</div>
+        <p-select
+                formControlName="movieId"
+                [options]="movies()"
+                optionLabel="label"
+                optionValue="value"
+                appendTo="body"
+        />
+    </div>
+
+    <div>
+        <div>Start Time</div>
+        <p-datepicker inputId="calendar-24h" formControlName="startTime" [showTime]="true" [hourFormat]="'24'" appendTo="body"/>
+    </div>
+
+    <div class="form__actions">
+        <p-button
+                label="Cancel"
+                severity="contrast"
+                (click)="cancel()"
+                [disabled]="isLoading()"
+        />
+
+        <p-button
+                label="Save"
+                type="submit"
+                [disabled]="form.invalid || isLoading()"
+        />
+    </div>
+</form>

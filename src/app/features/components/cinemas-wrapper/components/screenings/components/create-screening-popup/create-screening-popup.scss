@@ -1,0 +1,19 @@
+:host {
+  .form {
+    display: grid;
+    gap: 16px;
+
+    p-select {
+      width: 200px;
+    }
+
+    p-datepicker {
+      width: 200px;
+    }
+
+    &__actions {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
